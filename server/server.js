@@ -5,6 +5,9 @@ const path = require('path');
 
 const publicPath = path.join(process.cwd(),'../public');
 
+
+// console.log(port);
+
 var app = express();
 var server = http.createServer(app);
 var io = socketIO(server).listen(server);
