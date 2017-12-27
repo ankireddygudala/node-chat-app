@@ -5,8 +5,9 @@ const path = require('path');
 
 const publicPath = path.join(process.cwd(),'../public');
 
+var port = process.env.PORT || 3000;
 
-// console.log(port);
+ console.log(port);
 
 var app = express();
 var server = http.createServer(app);
@@ -34,6 +35,6 @@ io.on('connection', function (socket){
    });
 });
 
-server.listen(3000, function (){
-   console.log('Server listening on port 3000');
+server.listen(port, function (){
+   console.log('Server listening on port ', port);
 });
