@@ -3,9 +3,10 @@ const http = require('http');
 const socketIO = require('socket.io');
 const path = require('path');
 
-const publicPath = path.join(process.cwd(),'../public');
+const publicPath = path.join(process.cwd(),'/public');
 
 var port = process.env.PORT || 3000;
+
 
 
 var app = express();
@@ -14,9 +15,6 @@ var io = socketIO(server).listen(server);
 
 app.use(express.static(publicPath));
 
-app.get('/', function (req, res) {
-   res.sendFile(path.join(process.cwd(),'../public/index.html'));
-});
 
 io.on('connection', function (socket){
    console.log('new user connected!');
