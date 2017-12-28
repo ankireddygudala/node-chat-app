@@ -2,7 +2,7 @@ const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
 const path = require('path');
-const {generateMessage} = require('./server/utils/generateMessage');
+const {generateMessage, generateLocationMessage} = require('./server/utils/generateMessage');
 
 const publicPath = path.join(process.cwd(),'/public');
 
@@ -22,11 +22,16 @@ io.on('connection', function (socket){
     socket.emit('newMessage', generateMessage('admin', 'Welcome to chat room'));
     socket.broadcast.emit('newMessage', generateMessage('admin', 'new user connected!'));
 
-   socket.on('createMessage', function (newMessage) {
+   socket.on('createMessage', function (newMessage, callback) {
       console.log('New Message :', newMessage);
        io.emit('newMessage', generateMessage(newMessage.from, newMessage.text));
+       callback();
    });
 
+   socket.on('createLocationMessage', function (coords) {
+
+      io.emit('newLocationMessage', generateLocationMessage('Admin', coords.latitude, coords.longitude));
+   });
    socket.on('disconnect', function (){
       console.log('User disconnected!');
    });
