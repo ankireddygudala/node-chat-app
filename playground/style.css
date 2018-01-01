@@ -1,0 +1,19 @@
+.container {
+    background: #efcdf4;
+}
+.people{
+    overflow-y: scroll;
+    width: 15%;
+    height: 100vh;
+
+
+
+    position: fixed;
+}
+.chat-main{
+    width: 85%;
+    height:100vh;
+    float: right;
+
+    position: inherit;
+}

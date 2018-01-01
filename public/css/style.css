@@ -9,6 +9,7 @@
 
 ul, li {
     list-style-position: inside;
+    list-style-type:none
 }
 
 h3 {
@@ -197,4 +198,3 @@ button:disabled {
     .chat__footer button {
         margin-right: 0px;
     }
-}
