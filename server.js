@@ -64,5 +64,5 @@ io.on('connection', function (socket){
 });
 
 server.listen(port, function (){
-   console.log('Server listening on port ', port);
+    console.log('Server listening on port ', port);
 });
